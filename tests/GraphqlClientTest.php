@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Camuthig\GraphqlClient\Test;
+namespace Camuthig\Graphql\Client\Test;
 
-use Camuthig\GraphqlClient\Client;
+use Camuthig\Graphql\Client\Client;
 use PHPUnit\Framework\TestCase;
 
 /**

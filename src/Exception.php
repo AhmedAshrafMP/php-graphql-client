@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Camuthig\GraphqlClient;
+namespace Camuthig\Graphql\Client;
 
 class Exception extends \RuntimeException
 {

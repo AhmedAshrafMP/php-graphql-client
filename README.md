@@ -13,7 +13,7 @@ composer require camuthig/graphql-client
 ```php
 <?php
 
-use Camuthig\GraphqlClient\Client;
+use Camuthig\Graphql\Client\Client;
 
 $client = new Client('https://9jv9z4w3kr.lp.gql.zone/graphql');
 

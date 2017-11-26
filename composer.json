@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Camuthig\\GraphqlClient\\": "src"
+            "Camuthig\\Graphql\\Client\\": "src"
         }
     },
     "autoload-dev": {
       "psr-4": {
-          "Camuthig\\GraphqlClient\\Test\\": "tests"
+          "Camuthig\\Graphql\\Client\\Test\\": "tests"
       }
     },
     "scripts": {

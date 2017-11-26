@@ -1,6 +1,6 @@
 # PHP GraphQL Client
 
-A simple GraphQL client for PHP 7.1+
+A simple, dependency-free GraphQL client for PHP 7.1+
 
 ## Install
 

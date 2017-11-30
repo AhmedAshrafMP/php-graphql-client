@@ -22,25 +22,21 @@ $headers = [
 $client = new Client('https://9jv9z4w3kr.lp.gql.zone/graphql', $headers);
 
 $graphql = <<<'GRAPHQL'
-query($input: String) {
+query($input: String!) {
   hello(input: $input)
 }
 GRAPHQL;
 
 $result = $client->execute($graphql, ['input' => 'everyone']);
 
-var_dump($result);
+var_dump($result->hasErrors()); // false
+var_dump($result->getErrors()); // []
+var_dump($result->getData());
 /*
-array(2) {
- ["data"]=>
- array(1) {
-   ["hello"]=>
-   string(15) "Hello everyone! From The Test"
- }
- ["extensions"]=>
- array(0) {
- }
+array(1) {
+  ["hello"]=>
+  string(15) "Hello everyone! From The Test"
 }
- */
+*/
 
 ```

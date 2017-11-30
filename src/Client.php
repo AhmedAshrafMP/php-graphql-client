@@ -35,7 +35,15 @@ class Client
         }
     }
 
-    public function execute(string $query, ?array $variables = []): array
+    /**
+     * @param string $query
+     * @param array  $variables
+     *
+     * @return Response
+     *
+     * @throws Exception
+     */
+    public function execute(string $query, array $variables = []): Response
     {
         $body = [
             'query' => $query,
@@ -55,6 +63,6 @@ class Client
             throw new Exception('Unknown failure executing request on GraphQL server');
         }
 
-        return json_decode($result, true);
+        return new Response(json_decode($result, true));
     }
 }

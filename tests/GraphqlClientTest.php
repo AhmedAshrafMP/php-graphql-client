@@ -8,7 +8,7 @@ use Camuthig\Graphql\Client\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Camuthig\GraphqlClient\Client
+ * @covers \Camuthig\Graphql\Client\Client
  */
 class GraphqlClientTest extends TestCase
 {
@@ -28,10 +28,9 @@ GRAPHQL;
         $result = $client->execute($graphql, ['input' => 'everyone']);
 
         $expected = [
-                'hello' => 'Hello everyone! From The Test',
+            'hello' => 'Hello everyone! From The Test',
         ];
 
-        self::assertArrayHasKey('data', $result);
-        self::assertEquals($expected, $result['data']);
+        self::assertEquals($expected, $result->getData());
     }
 }

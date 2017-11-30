@@ -16,13 +16,23 @@ class Client
      */
     private $headers;
 
+    /**
+     * Client constructor.
+     *
+     * @param string $endpoint
+     * @param array  $headers An associative array of header names to values
+     */
     public function __construct(string $endpoint, array $headers = [])
     {
         $this->endpoint = $endpoint;
-        $this->headers = array_merge($headers, [
-            'Content-Type: application/json',
-            'Accept: application/json',
+        $headers = array_merge($headers, [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
         ]);
+
+        foreach ($headers as $key => $value) {
+            $this->headers[] = sprintf('%s: %s', $key, $value);
+        }
     }
 
     public function execute(string $query, ?array $variables = []): array

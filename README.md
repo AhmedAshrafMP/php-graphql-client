@@ -15,7 +15,11 @@ composer require camuthig/graphql-client
 
 use Camuthig\Graphql\Client\Client;
 
-$client = new Client('https://9jv9z4w3kr.lp.gql.zone/graphql');
+$headers = [
+    'X-From' => 'The Test',
+];
+
+$client = new Client('https://9jv9z4w3kr.lp.gql.zone/graphql', $headers);
 
 $graphql = <<<'GRAPHQL'
 query($input: String) {
@@ -31,7 +35,7 @@ array(2) {
  ["data"]=>
  array(1) {
    ["hello"]=>
-   string(15) "Hello everyone!"
+   string(15) "Hello everyone! From The Test"
  }
  ["extensions"]=>
  array(0) {

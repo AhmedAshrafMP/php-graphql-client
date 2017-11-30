@@ -17,10 +17,10 @@ class GraphqlClientTest extends TestCase
      */
     public function executesRequest()
     {
-        $client = new Client('https://9jv9z4w3kr.lp.gql.zone/graphql');
+        $client = new Client('https://9jv9z4w3kr.lp.gql.zone/graphql', ['X-From' => 'The Test']);
 
         $graphql = <<<'GRAPHQL'
-query($input: String) {
+query($input: String!) {
   hello(input: $input)
 }
 GRAPHQL;
@@ -28,12 +28,10 @@ GRAPHQL;
         $result = $client->execute($graphql, ['input' => 'everyone']);
 
         $expected = [
-            'data' => [
-                'hello' => 'Hello everyone!',
-            ],
-            'extensions' => [],
+                'hello' => 'Hello everyone! From The Test',
         ];
 
-        self::assertEquals($expected, $result);
+        self::assertArrayHasKey('data', $result);
+        self::assertEquals($expected, $result['data']);
     }
 }
